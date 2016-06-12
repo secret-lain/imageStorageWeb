@@ -4,7 +4,7 @@
 	<title>Home</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
-    <script type="text/javascript" src="/test/resources/upload.js"></script>
+    <script type="text/javascript" src="/resources/upload.js"></script>
     <script>
     $(function() {
         $("#imgInp").on('change', function(){
