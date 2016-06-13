@@ -1,8 +1,11 @@
 ■ 프로젝트 준비
 
 ・Eclipse mars 4.5.2 (or near version)
+
 ・STS(Spring Tool Suite) 3.6.3
+
 ・Tomcat v7.0 or v8.0 (recommended 8.0)
+
 ・git
 
 ・JDK 1.7 ↑(프로젝트가 1.7을 기준으로 구동)
