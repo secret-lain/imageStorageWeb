@@ -33,6 +33,12 @@ public class HomeController {
 		return "home";
 	}
 	
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	public String index(Locale locale, Model model) {
+		logger.info("Index connected The client locale is {}.", locale);	
+		return "index";
+	}
+	
 	@RequestMapping(value = "/uploadResult", method = RequestMethod.POST)
 	public String uploadResult(Locale locale, Model model, HttpServletRequest request, @RequestParam("uploadImg") MultipartFile imgFile){
 		logger.info("{} upload.", locale);

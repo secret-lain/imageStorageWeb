@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %> 
+
 <html>
 <head>
 	<title>Home</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
-    <script type="text/javascript" src="/resources/upload.js"></script>
+    <script type="text/javascript" src="/resources/js/upload.js"></script>
     <script>
     $(function() {
         $("#imgInp").on('change', function(){
@@ -24,7 +25,9 @@
 	<input type="file" id="imgInp" name="uploadImg"/>
 	<input type="button" id="fileUploadSubmit" value="upload" onClick=fileCheck(this.form); />
 </form>
+<br>
 
-
+<%@ include file="/resources/index.html" %>
+a
 </body>
 </html>
