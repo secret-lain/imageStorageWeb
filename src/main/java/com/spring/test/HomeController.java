@@ -1,11 +1,6 @@
 package com.spring.test;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.util.Locale;
-import java.util.Random;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -16,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.spring.service.UploadService;
 /**
  * Handles requests for the application upload jsp Page.
  */
@@ -47,7 +44,9 @@ public class HomeController {
 			model.addAttribute("resultMsg", "upload Failed!(this is not image file)");
 			return "uploadResult";
 		}
-		
+		UploadService upload_serv = new UploadService(imgFile,model);
+		upload_serv.saveImgfile();
+/*		
 		String savePath = "../images/";
 		String savePrefix = "Imgine";
 		String saveFilename = savePrefix + "_" + System.currentTimeMillis();
@@ -65,6 +64,7 @@ public class HomeController {
 	            model.addAttribute("resultMsg", e.getMessage());
 	        }
     	}
+*/
 		return "uploadResult";
 	}
 }
