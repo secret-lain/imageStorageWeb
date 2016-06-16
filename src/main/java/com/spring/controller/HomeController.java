@@ -1,4 +1,4 @@
-package com.spring.test;
+package com.spring.controller;
 
 import java.util.Locale;
 import javax.servlet.http.HttpServletRequest;
