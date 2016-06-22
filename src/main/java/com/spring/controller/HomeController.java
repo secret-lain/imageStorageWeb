@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.spring.service.UploadService;
+import com.spring.service.uploadService;
 /**
  * Handles requests for the application upload jsp Page.
  */
@@ -44,7 +44,7 @@ public class HomeController {
 			model.addAttribute("resultMsg", "upload Failed!(this is not image file)");
 			return "uploadResult";
 		}
-		UploadService upload_serv = new UploadService(imgFile,model);
+		uploadService upload_serv = new uploadService(imgFile,model);
 		upload_serv.saveImgfile();
 /*		
 		String savePath = "../images/";

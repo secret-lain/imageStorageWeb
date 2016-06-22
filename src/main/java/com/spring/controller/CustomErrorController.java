@@ -31,7 +31,7 @@ public class CustomErrorController {
 	@RequestMapping(value = "/error/internalServerError", method = RequestMethod.GET)
 	public String internalServerError(Locale locale, Model model, HttpServletResponse response){
 		logger.info(locale + " visit 500 Error Page");
-		response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+		response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
 		
 		model.addAttribute("errorCode", 500);
 		model.addAttribute("errorComment", "내부 서버 에러입니다.<br>무슨 짓을 하신거죠?");

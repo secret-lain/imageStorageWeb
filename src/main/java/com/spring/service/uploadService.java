@@ -7,7 +7,7 @@ import java.io.FileOutputStream;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
-public class UploadService {
+public class uploadService {
 	private MultipartFile imgfile;
 	private Model model;
 	
@@ -18,7 +18,7 @@ public class UploadService {
 	private String saveFileExtension;
 	private String fullPath;
 	
-	public UploadService(MultipartFile _imgfile, Model _model)
+	public uploadService(MultipartFile _imgfile, Model _model)
 	{
 		imgfile = _imgfile;
 		model = _model;
