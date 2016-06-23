@@ -4,31 +4,22 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 
+
+@Service
 public class uploadService {
-	private MultipartFile imgfile;
-	private Model model;
 	
-	private final String savePath = "C:\\Users\\mar1s\\Desktop\\image\\";
-	private final String savePrefix = "Imgine";
-	
-	private String saveFilename;
-	private String saveFileExtension;
-	private String fullPath;
-	
-	public uploadService(MultipartFile _imgfile, Model _model)
+	public void saveImgfile(MultipartFile imgfile, Model model)
 	{
-		imgfile = _imgfile;
-		model = _model;
-	}
-	
-	public void saveImgfile()
-	{
-		saveFilename = savePrefix + "_" + System.currentTimeMillis();
-		saveFileExtension = imgfile.getOriginalFilename().substring(imgfile.getOriginalFilename().lastIndexOf('.') + 1);
-		fullPath = savePath + saveFilename + "." + saveFileExtension;
+		final String savePath = "C:\\Users\\admin\\Desktop\\images\\";
+		final String savePrefix = "Imgine";
+		
+		String saveFilename = savePrefix + "_" + System.currentTimeMillis();
+		String saveFileExtension = imgfile.getOriginalFilename().substring(imgfile.getOriginalFilename().lastIndexOf('.') + 1);
+		String fullPath = savePath + saveFilename + "." + saveFileExtension;
 		
 		if(!imgfile.isEmpty())
 		{

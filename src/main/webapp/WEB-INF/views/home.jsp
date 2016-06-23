@@ -64,7 +64,7 @@
 		</fieldset>
 		
 		<h2>File select</h2><br>
-		<form name="form1" method="post" action="uploadResult" enctype="multipart/form-data">
+		<form name="form1" method="post" action="upload.do" enctype="multipart/form-data">
 			<input type="file" id="imgInp" class="btn btn-primary" name="uploadImg"/><br><br>
 			<input type="button" id="fileUploadSubmit" class="btn-lg btn-success" value="upload" onClick=fileCheck(this.form); />
 		</form>
