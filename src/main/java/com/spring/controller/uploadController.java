@@ -18,10 +18,18 @@ import com.spring.service.uploadService;
 
 @Controller
 public class uploadController {
+	/*
+	 * 설명
+	 * uploadService 는 자동으로 com.spring.service의 uploadService를 받아온다.
+	 * saveImgfile을 사용하기 위해 사용되며 인자로 이미지파일과 view에 보낼 Model객체를 받는다.
+	 * 
+	 * 이 model로 인해 uploadService에서 추가한 데이터도 컨트롤러에서 리턴할 수 있게 되는 것. 
+	 * */
+	
 	private static final Logger logger = LoggerFactory.getLogger(uploadController.class);
 	
 	@Autowired
-	public uploadService uploadService;
+	private uploadService uploadService;
 	
 	
 	@RequestMapping(value = "/upload.do", method = RequestMethod.POST)
@@ -36,6 +44,4 @@ public class uploadController {
 		uploadService.saveImgfile(imgFile, model);
 		return "uploadResult";
 	}
-	
-	
 }
