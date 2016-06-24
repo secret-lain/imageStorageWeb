@@ -18,7 +18,7 @@ public class customErrorController {
 	 * 이메일 : vvvb78@gmail.com
 	 * 
 	 * 설명
-	 * errorPage view 내의 글귀만 리턴해줌. 모든 결과는 200 OK Response 이다.
+	 * errorPage view 내의 글귀만 리턴해줌. 모든 결과는 200 OK Response 이다.(미적용)
 	 * 브라우저가 코드를 읽고 커스텀페이지를 보여주기 전에 자체 에러페이지를 띄울 수 있기 때문이다. 
 	 * */
 	

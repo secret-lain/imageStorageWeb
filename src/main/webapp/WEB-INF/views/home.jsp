@@ -60,9 +60,9 @@
 	<div id="content">
 		<h2>Preview</h2><br>
 		<fieldset>
-			<img id="previewImg" src="#" alt="previewImg" width="400" height="300" style="display:none;" />
+			<img id="previewImg" src="#" alt="previewImg" width="300" height="300" style="display:none;" />
 		</fieldset>
-		
+		         
 		<h2>File select</h2><br>
 		<form name="form1" method="post" action="upload.do" enctype="multipart/form-data">
 			<input type="file" id="imgInp" class="btn btn-primary" name="uploadImg"/><br><br>
