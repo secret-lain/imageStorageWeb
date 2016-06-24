@@ -1,4 +1,4 @@
-package com.spring.service;
+package org.spring.service;
 
 import java.io.BufferedOutputStream;
 import java.io.File;

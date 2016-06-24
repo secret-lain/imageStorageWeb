@@ -1,4 +1,4 @@
-package com.spring.controller;
+package org.spring.controller;
 
 import java.util.Locale;
 import org.slf4j.Logger;
