@@ -3,17 +3,21 @@
 <head>
 	<title>Home</title>
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     
+    <!-- loading basic bootstrap -->
     <link href="/resources/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/resources/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="/resources/bootstrap/dist/theme.css" rel="stylesheet">
-
+	
+	<!-- loading bricks style by header -->
+	
+	<!-- loading Favicon Image -->
+	<link rel="icon" href="/resources/images/favicon.png" type="image/s-icon">
+	
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script type="text/javascript" src="/resources/js/upload.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
@@ -31,44 +35,151 @@
     }
     fieldset
     {
-    	width: 410px;
+    	width: 310px;
     	height: 310px;
     	border: 2px solid black;
     	display: inline;
+    	padding: 2px;
     }
     #content
     {
-		column-count: 2;
+		height: 360px;
+		background-color: #cce6ff;
+		margin-bottom: 0px;
     }
-    fieldset
+    #internal
     {
-    	padding: 2px;
+    	column-count: 2;
+    	width: 70%;
+    	margin-left: auto;
+    	margin-right: auto;
+    	padding-top: 5px;
+    }
+    #freewall
+    {
+    	margin-top: 0px;
     }
     </style>
 </head>
 <body role="document">
 <div id="header">
 <%@include file="header.jsp" %>
-</div>
+</div>	
 
-<div class="container theme-showcase" role="main">
-	<div class="jumbotron">
-		<h2>Image upload</h2><br>
-		<p>파일을 선택하여 이미지를 업로드 합니다. 이미지를 선택하면 미리보기에 자동으로 저장될 이미지가 보여집니다. 이미지외의 파일은 업로드가 거절될 수 있습니다.</p>
-	</div>
-	
-	<div id="content">
-		<h2>Preview</h2><br>
+<div id="content">
+	<div id="internal">
+		<h3>Preview</h3><br>
 		<fieldset>
 			<img id="previewImg" src="#" alt="previewImg" width="300" height="300" style="display:none;" />
 		</fieldset>
 		         
-		<h2>File select</h2><br>
 		<form name="form1" method="post" action="upload.do" enctype="multipart/form-data">
+			<h3>File select</h3><br>
 			<input type="file" id="imgInp" class="btn btn-primary" name="uploadImg"/><br><br>
+			<h3>File title</h3><br>
+			<input type="text" id="fileTitle" size="48"><br><br><br>
 			<input type="button" id="fileUploadSubmit" class="btn-lg btn-success" value="upload" onClick=fileCheck(this.form); />
 		</form>
 	</div>
+</div>
+
+<div id="freewall" class="free-wall main-entry">
+            <div class="brick tint size11">
+                <img src="/resources/images/5171071313_e4c110ccb2_b.jpg" alt="" />
+                <div class="overlay">
+                    <h3 class="project-title">Your Project Title</h3>
+                    <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="single-page-lite1.html" class="open-project">OPEN <span class="pictogram">&#xe803;</span></a>
+                </div>
+            </div>
+            <div class="brick tint size11">
+                <img src="/resources/images/5171071313_e4c110ccb2_b.jpg" alt="" />
+                <div class="overlay">
+                    <h3 class="project-title">Your Project Title</h3>
+                    <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="single-page-lite1.html" class="open-project">OPEN <span class="pictogram">&#xe803;</span></a>
+                </div>
+            </div>
+            <div class="brick tint size11">
+                <img src="/resources/images/1452336320_483f721d3d_o.jpg" alt="" />
+                <div class="overlay">
+                    <h3 class="project-title">Your Project Title</h3>
+                    <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="single-page-lite2.html" class="open-project">OPEN <span class="pictogram">&#xe803;</span></a>
+                </div>
+            </div>
+            <div class="brick tint size11">
+                <img src="/resources/images/4171682579_91f75f9a6a_o.jpg" alt="" />
+                <div class="overlay">
+                    <h3 class="project-title">Your Project Title</h3>
+                    <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="single-page-lite1.html" class="open-project">OPEN <span class="pictogram">&#xe803;</span></a>
+                </div>
+            </div>
+            <div class="brick tint size11">
+                <img src="/resources/images/1330348274_33c00c4886_o.jpg" alt="" />
+                <div class="overlay">
+                    <h3 class="project-title">Your Project Title</h3>
+                    <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="single-page-lite2.html" class="open-project">OPEN <span class="pictogram">&#xe803;</span></a>
+                </div>
+            </div>
+            <div class="brick tint size11">
+                <img src="/resources/images/4171682579_91f75f9a6a_o.jpg" alt="" />
+                <div class="overlay">
+                    <h3 class="project-title">Your Project Title</h3>
+                    <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="single-page-lite1.html" class="open-project">OPEN <span class="pictogram">&#xe803;</span></a>
+                </div>
+            </div>
+            <div class="brick tint size11">
+                <img src="/resources/images/1330348274_33c00c4886_o.jpg" alt="" />
+                <div class="overlay">
+                    <h3 class="project-title">Your Project Title</h3>
+                    <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="single-page-lite2.html" class="open-project">OPEN <span class="pictogram">&#xe803;</span></a>
+                </div>
+            </div>
+            <div class="brick tint size11">
+                <img src="/resources/images/5171071313_e4c110ccb2_b.jpg" alt="" />
+                <div class="overlay">
+                    <h3 class="project-title">Your Project Title</h3>
+                    <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="single-page-lite1.html" class="open-project">OPEN <span class="pictogram">&#xe803;</span></a>
+                </div>
+            </div>
+            <div class="brick tint size11">
+                <img src="/resources/images/1452336320_483f721d3d_o.jpg" alt="" />
+                <div class="overlay">
+                    <h3 class="project-title">Your Project Title</h3>
+                    <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="single-page-lite2.html" class="open-project">OPEN <span class="pictogram">&#xe803;</span></a>
+                </div>
+            </div>
+            <div class="brick tint size11">
+                <img src="/resources/images/1330348274_33c00c4886_o.jpg" alt="" />
+                <div class="overlay">
+                    <h3 class="project-title">Your Project Title</h3>
+                    <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="single-page-lite2.html" class="open-project">OPEN <span class="pictogram">&#xe803;</span></a>
+                </div>
+            </div>
+            <div class="brick tint size11">
+                <img src="/resources/images/5171071313_e4c110ccb2_b.jpg" alt="" />
+                <div class="overlay">
+                    <h3 class="project-title">Your Project Title</h3>
+                    <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="single-page-lite1.html" class="open-project">OPEN <span class="pictogram">&#xe803;</span></a>
+                </div>
+            </div>
+            <div class="brick tint size11">
+                <img src="/resources/images/1452336320_483f721d3d_o.jpg" alt="" />
+                <div class="overlay">
+                    <h3 class="project-title">Your Project Title</h3>
+                    <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="single-page-lite2.html" class="open-project">OPEN <span class="pictogram">&#xe803;</span></a>
+                </div>
+            </div>                 		
 </div>
 
 <%@include file="footer.jsp" %>
