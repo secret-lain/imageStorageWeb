@@ -29,7 +29,7 @@ public class customErrorController {
 		logger.info(locale + " visit 404 Error Page");
 		response.setStatus(HttpServletResponse.SC_NOT_FOUND);
 		
-		model.addAttribute("errorCode", 400);
+		model.addAttribute("errorCode", 404);
 		model.addAttribute("errorComment", "페이지를 찾을 수 없습니다.");
 		
 		return "/error/errorPage";
@@ -45,4 +45,10 @@ public class customErrorController {
 		
 		return "/error/errorPage";
 	}
+	
+	// /error/exceedSizeError위치로
+	// 업로드용량 초과시 발생
+
+	//HTTP Status 405 - Request method 'GET' not supported
+	//upload.do같은 곳에 바로 접속하는 경우 발생
 }

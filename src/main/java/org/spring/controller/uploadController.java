@@ -29,8 +29,7 @@ public class uploadController {
 	
 	@Autowired
 	private uploadService uploadService;
-	
-	
+		
 	@RequestMapping(value = "/upload.do", method = RequestMethod.POST)
 	public String uploadResult(Locale locale, Model model, HttpServletRequest request, @RequestPart("uploadImg") MultipartFile imgFile){
 		logger.info("{} upload.", locale);
