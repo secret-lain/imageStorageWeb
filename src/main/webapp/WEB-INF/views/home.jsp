@@ -77,7 +77,7 @@
 			<h3>File select</h3><br>
 			<input type="file" id="imgInp" class="btn btn-primary" name="uploadImg"/><br><br>
 			<h3>File title</h3><br>
-			<input type="text" id="fileTitle" size="48"><br><br><br>
+			<input type="text" name="fileTitle" size="48"><br><br><br>
 			<input type="button" id="fileUploadSubmit" class="btn-lg btn-success" value="upload" onClick=fileCheck(this.form); />
 		</form>
 	</div>

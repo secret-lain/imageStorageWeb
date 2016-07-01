@@ -1,32 +1,44 @@
 package org.spring.service;
 
+import java.util.List;
+import org.spring.dto.*;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.sql.Date;
+import java.sql.SQLException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spring.controller.customErrorController;
-import org.spring.dao.imageUploadDAO;
+import org.spring.dao.imageDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-
+import org.java.cipher.fileEncrypter;
 
 @Service
 public class uploadService {
 	@Autowired
-	private imageUploadDAO imageUploadDAO;
+	private imageDAO imageDAO;
+	@Autowired
+	fileEncrypter encrypt;
+	final String salt = "IdolMaster";
 	
-	public void saveImgfile(MultipartFile imgfile, Model model)
+	public void saveImgfile(MultipartFile imgfile, Model model, String description) throws Exception
 	{		
 		final String savePath = "C:\\Users\\admin\\Desktop\\images\\";
-		final String savePrefix = "Imgine";
 		
-		String saveFilename = savePrefix + "_" + System.currentTimeMillis();
-		String saveFileExtension = imgfile.getOriginalFilename().substring(imgfile.getOriginalFilename().lastIndexOf('.') + 1);
-		String fullPath = savePath + saveFilename + "." + saveFileExtension;
+		String originalFileName = imgfile.getOriginalFilename();
+		String hashFileName = encrypt.getMD5(originalFileName + salt);
+		Date fileSavedDate = new Date(System.currentTimeMillis());
+		//난수로 사용된다.
+		
+		String linkHash = encrypt.getSHA1(hashFileName+fileSavedDate.toString());
+		//String saveFileExtension = imgfile.getOriginalFilename().substring(imgfile.getOriginalFilename().lastIndexOf('.') + 1);
+		String fullPath = savePath + linkHash;
 		
 		if(!imgfile.isEmpty())
 		{
@@ -35,10 +47,14 @@ public class uploadService {
 	            byte[] bytes = imgfile.getBytes();
 	            BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(fullPath)));
 	            stream.write(bytes);
-	            stream.close();
+	            stream.close();         
+	            
+	            imageDTO dto = new imageDTO(description, originalFileName, linkHash, hashFileName, fileSavedDate);
+	            
+	            //TODO for Debug(exact value test)
+	            int resultValue = imageDAO.insert(dto);           
 	            model.addAttribute("resultMsg", "File uploaded!");
 	            
-	            System.out.println(imageUploadDAO.test());
 	            /*
 	             * 20160628 현재상황
 	             * mybatis-context.xml로 연결설정하고
@@ -57,5 +73,9 @@ public class uploadService {
 				model.addAttribute("resultMsg", e.getMessage());
 			}
 		}
+	}
+
+	public List<mainImageVO> getMainImages() throws SQLException {
+		return imageDAO.selectAll();
 	}
 }

@@ -1,8 +1,11 @@
 package org.spring.controller;
 
+import java.sql.SQLException;
 import java.util.Locale;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.spring.service.uploadService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,11 +16,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class homeController {
+	@Autowired
+	private uploadService uploadService;
 	private static final Logger logger = LoggerFactory.getLogger(homeController.class);
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	public String home(Locale locale, Model model) throws SQLException {
 		logger.info("Welcome home! The client locale is {}.", locale);	
+		model.addAttribute("images" , uploadService.getMainImages());
 		return "home";
 	}
 	

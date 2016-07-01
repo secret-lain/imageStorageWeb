@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -31,7 +32,7 @@ public class uploadController {
 	private uploadService uploadService;
 		
 	@RequestMapping(value = "/upload.do", method = RequestMethod.POST)
-	public String uploadResult(Locale locale, Model model, HttpServletRequest request, @RequestPart("uploadImg") MultipartFile imgFile){
+	public String uploadResult(Locale locale, Model model, HttpServletRequest request, @RequestPart("uploadImg") MultipartFile imgFile, @RequestParam("fileDescription") String title) throws Exception{
 		logger.info("{} upload.", locale);
 			
 		if(!imgFile.getContentType().contains("image")){
@@ -39,7 +40,7 @@ public class uploadController {
 			return "uploadResult";
 		}
 		
-		uploadService.saveImgfile(imgFile, model);
+		uploadService.saveImgfile(imgFile, model, title);
 		return "uploadResult";
 	}
 }
