@@ -8,28 +8,26 @@ import java.io.FileOutputStream;
 import java.sql.Date;
 import java.sql.SQLException;
 
+import org.component.cipher.*;
+import org.component.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.spring.controller.customErrorController;
 import org.spring.dao.imageDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.java.cipher.fileEncrypter;
 
 @Service
 public class uploadService {
-	@Autowired
-	private imageDAO imageDAO;
-	@Autowired
-	fileEncrypter encrypt;
+	@Autowired private imageDAO imageDAO;
+	@Autowired fileEncrypter encrypt;
+	@Autowired globalValue global;
 	final String salt = "IdolMaster";
 	
 	public void saveImgfile(MultipartFile imgfile, Model model, String description) throws Exception
 	{		
-		final String savePath = "C:\\Users\\admin\\Desktop\\images\\";
+		final String savePath = global.getSavePath();
 		
 		String originalFileName = imgfile.getOriginalFilename();
 		String hashFileName = encrypt.getMD5(originalFileName + salt);

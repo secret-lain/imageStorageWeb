@@ -1,4 +1,4 @@
-package org.java.cipher;
+package org.component.cipher;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
