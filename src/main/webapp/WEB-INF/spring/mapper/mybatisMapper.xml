@@ -6,14 +6,14 @@
     </select>
     
     <select id="imageSelectAllforMain" resultType="org.spring.dto.mainImageVO">
-    	SELECT title, linkHash, uploadDate, viewCount from uploadFileTbl;
+    	SELECT description, linkHash, uploadDate, viewCount from uploadFileTbl;
     </select>
     
     
     
-    <insert id="imageInsert" parameterType="org.spring.dto.imageUploadDTO">
-    	INSERT into uploadFileTbl (title, originalFileName, uploadDate, linkHash, hashFileName, blameRate, viewCount)
-    	values (#{title}, #{originalFileName}, #{uploadDate}, #{linkHash}, #{hashFileName}, 0 , 0 )
+    <insert id="imageInsert" parameterType="org.spring.dto.imageDTO">
+    	INSERT into uploadFileTbl (description, originalFileName, uploadDate, linkHash, blameRate, viewCount)
+    	values (#{description}, #{originalFileName}, #{uploadDate}, #{linkHash}, 0 , 0 )
     </insert>
     
 </mapper>

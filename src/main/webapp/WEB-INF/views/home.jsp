@@ -4,6 +4,7 @@
 	<title>Home</title>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
     
     <!-- loading basic bootstrap -->
     <link href="/resources/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -77,8 +78,9 @@
 			<h3>File select</h3><br>
 			<input type="file" id="imgInp" class="btn btn-primary" name="uploadImg"/><br><br>
 			<h3>File title</h3><br>
-			<input type="text" name="fileTitle" size="48"><br><br><br>
-			<input type="button" id="fileUploadSubmit" class="btn-lg btn-success" value="upload" onClick=fileCheck(this.form); />
+			<input type="text" name="fileDescription" size="48"><br><br><br>
+			<input type="button" name="fileUploadSubmit" class="btn-lg btn-success" value="upload" onClick=fileCheck(this.form); />
+			<!-- fileDescription == Controller에 @RequestParam으로 인자를 넘기기위해 name으로 변경. -->
 		</form>
 	</div>
 </div>

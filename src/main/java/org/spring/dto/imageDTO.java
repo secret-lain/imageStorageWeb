@@ -11,7 +11,9 @@ public class imageDTO {
 	private String linkHash;
 	
 	public imageDTO(String description, String originalFileName,
-			String linkHash, String hashFileName ,Date uploadDate){
+			String linkHash, Date uploadDate){
+		
+		setDescription(description);
 		setOriginalFileName(originalFileName);
 		setUploadDate(uploadDate);
 		setLinkHash(linkHash);

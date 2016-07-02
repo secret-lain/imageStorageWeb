@@ -5,8 +5,8 @@ import java.security.NoSuchAlgorithmException;
 
 import org.springframework.stereotype.Component;
 
-@Component
-public class fileEncrypter {
+@Component("encrypter")
+public class Encrypter {
 	public String getMD5(String txt) throws Exception {
 	    StringBuffer sbuf = new StringBuffer();
 	          

@@ -25,6 +25,5 @@
 	
 
 	<context:component-scan base-package="org.spring.*" />	
-	<context:component-scan base-package="org.java.*"/>
-	
+	<context:component-scan base-package="org.component.**"/>
 </beans:beans>

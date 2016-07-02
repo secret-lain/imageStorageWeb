@@ -14,6 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spring.dao.imageDAO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,20 +22,33 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public class uploadService {
 	@Autowired private imageDAO imageDAO;
-	@Autowired fileEncrypter encrypt;
-	@Autowired globalValue global;
-	final String salt = "IdolMaster";
 	
+	@Autowired
+	@Qualifier("encrypter")	Encrypter encrypt;
+	
+	@Autowired globalValue global;
+	
+	
+	/*
+	 * TODO 파일확장자 img src할때 필요한지. 지금은 경로에 그대로 해시파일을 삽입한다.
+	 * DB insert Argument = description, originalFileName, linkHash, fileSavedfDate
+	 * description = 한줄설명
+	 * originalFileName = 실제 파일이름. 해시화에 사용된다
+	 * fileSaveDate = 파일이 저장된 년-월-일. 해시화에 사용된다.
+	 * linkHash = 실제로 저장 및 사용될 명칭. 파일명+저장일+salt값을 SHA-1로 해시화한다.
+	 * (salt) = 해시화에 사용되는 임의값.
+	 * 
+	 * */
 	public void saveImgfile(MultipartFile imgfile, Model model, String description) throws Exception
 	{		
 		final String savePath = global.getSavePath();
+		final String salt = global.getSalt();
 		
 		String originalFileName = imgfile.getOriginalFilename();
-		String hashFileName = encrypt.getMD5(originalFileName + salt);
 		Date fileSavedDate = new Date(System.currentTimeMillis());
 		//난수로 사용된다.
 		
-		String linkHash = encrypt.getSHA1(hashFileName+fileSavedDate.toString());
+		String linkHash = encrypt.getSHA1(originalFileName+fileSavedDate.toString()+salt);
 		//String saveFileExtension = imgfile.getOriginalFilename().substring(imgfile.getOriginalFilename().lastIndexOf('.') + 1);
 		String fullPath = savePath + linkHash;
 		
@@ -47,24 +61,11 @@ public class uploadService {
 	            stream.write(bytes);
 	            stream.close();         
 	            
-	            imageDTO dto = new imageDTO(description, originalFileName, linkHash, hashFileName, fileSavedDate);
+	            imageDTO dto = new imageDTO(description, originalFileName, linkHash, fileSavedDate);
 	            
-	            //TODO for Debug(exact value test)
-	            int resultValue = imageDAO.insert(dto);           
-	            model.addAttribute("resultMsg", "File uploaded!");
-	            
-	            /*
-	             * 20160628 현재상황
-	             * mybatis-context.xml로 연결설정하고
-	             * mybatisMapper-context.xml로 CRUD쿼리가 설정되어있는 경우이다.
-	             * imageUploadDAO에서 SqlSession이라는 객체로 바로 Autowire할수있는 것은
-	             * sqlSessionTemplate->sqlSession->mapper로 매핑됨->DAO파일이 세션을 가져옴 순서이기때문
-	             * 
-	             * SELECT 'test' 이기 떄문에 사실 DB에 접속하지 않아도 test라는 값을 String으로 반환하기로 되어있다.
-	             * 실제로 다양한 타입의 변수를 가져올 경우를 대비해 DTO를 작성할 예정임.(이때 반환타입은 DTO객체가 된다)
-	             * 
-	             * interface만 만들고 바로 매퍼가 적용되는 애노테이션이 있다고 하였는데 이쪽부분으로 찾는 것이 좋을듯함.
-	             * */
+	            //return 1 if insert success
+	            if(imageDAO.insert(dto) == 1)           
+	            	model.addAttribute("resultMsg", "File uploaded!");
 			}
 			catch(Exception e)
 			{

@@ -32,7 +32,7 @@ public class uploadController {
 	private uploadService uploadService;
 		
 	@RequestMapping(value = "/upload.do", method = RequestMethod.POST)
-	public String uploadResult(Locale locale, Model model, HttpServletRequest request, @RequestPart("uploadImg") MultipartFile imgFile, @RequestParam("fileDescription") String title) throws Exception{
+	public String uploadResult(Locale locale, Model model, HttpServletRequest request, @RequestPart("uploadImg") MultipartFile imgFile, @RequestParam("fileDescription") String description) throws Exception{
 		logger.info("{} upload.", locale);
 			
 		if(!imgFile.getContentType().contains("image")){
@@ -40,7 +40,7 @@ public class uploadController {
 			return "uploadResult";
 		}
 		
-		uploadService.saveImgfile(imgFile, model, title);
+		uploadService.saveImgfile(imgFile, model, description);
 		return "uploadResult";
 	}
 }

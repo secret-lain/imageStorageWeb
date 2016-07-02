@@ -4,12 +4,12 @@ import java.sql.Date;
 
 public class mainImageVO {
 //title, linkHash, uploadDate
-	private String title;
+	private String description;
 	private String linkHash;
 	private Date uploadDate;
 	
-	public String getTitle() {
-		return title;
+	public String getDescription() {
+		return description;
 	}
 	public String getLinkHash() {
 		return linkHash;
