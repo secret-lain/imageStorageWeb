@@ -9,7 +9,6 @@
     <!-- loading basic bootstrap -->
     <link href="/resources/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/resources/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="/resources/bootstrap/dist/theme.css" rel="stylesheet">
 	
 	<!-- loading bricks style by header -->
 	
@@ -52,6 +51,7 @@
     {
     	column-count: 2;
     	width: 70%;
+    	height: 360px;
     	margin-left: auto;
     	margin-right: auto;
     	padding-top: 5px;
