@@ -9,10 +9,20 @@
     <!-- loading basic bootstrap -->
     <link href="/resources/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/resources/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- 
     <link href="/resources/bootstrap/dist/theme.css" rel="stylesheet">
+	  -->
+	  
+	<!-- Stylesheet - to improve site's load speed, better use the minimized version.
+     The unminified version is also included in package. -->
+	<link rel="stylesheet" type="text/css" href="/resources/css/style.lite.min.css" />
+		
+	<!-- Normalize v.3.0.0 - makes browsers render all elements more consistently. -->
+	<link rel="stylesheet" type="text/css" href="/resources/css/normalize.min.css" />
 	
-	<!-- loading bricks style by header -->
-	
+	<!-- Google Web Font. -->
+    <link href="//fonts.googleapis.com/css?family=Lato:700,300" rel="stylesheet" type="text/css">
+		
 	<!-- loading Favicon Image -->
 	<link rel="icon" href="/resources/images/favicon.png" type="image/s-icon">
 	
@@ -76,7 +86,10 @@
 		         
 		<form name="form1" method="post" action="upload.do" enctype="multipart/form-data">
 			<h3>File select</h3><br>
-			<input type="file" id="imgInp" class="btn btn-primary" name="uploadImg"/><br><br>
+			<label class="btn btn-default btn-file">
+    			파일 찾기 <input type="file" id="imgInp" name="uploadImg" style="display: none;">
+			</label>
+			<br><br>
 			<h3>File title</h3><br>
 			<input type="text" name="fileDescription" size="48"><br><br><br>
 			<input type="button" name="fileUploadSubmit" class="btn-lg btn-success" value="upload" onClick=fileCheck(this.form); />
