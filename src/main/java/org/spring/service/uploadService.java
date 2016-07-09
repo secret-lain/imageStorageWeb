@@ -77,4 +77,8 @@ public class uploadService {
 	public List<mainImageDTO> getMainImages() throws SQLException {
 		return imageDAO.selectAll();
 	}
+
+	public void truncate() {
+		imageDAO.truncate();		
+	}
 }

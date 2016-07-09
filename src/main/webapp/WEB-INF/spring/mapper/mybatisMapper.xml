@@ -25,4 +25,8 @@ blameRate int default 0
     	values (#{description}, #{originalFileName}, #{uploadDate}, #{linkHash}, 0 , 0 )
     </insert>
     
+    <delete id="truncate">
+    	truncate table imageInfoTbl
+    </delete>
+    
 </mapper>

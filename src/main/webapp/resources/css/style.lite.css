@@ -432,14 +432,14 @@ a.fullscreenExit {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(219, 222, 224, 0.92);
+    background: rgba(240, 240, 240, 0.3);
     -moz-transition: background .3s linear;
     -webkit-transition: background .3s linear;
     -o-transition: background .3s linear;
     transition: background .3s linear;
 }
 .tint:hover:before {
-    background: rgba(226, 232, 235, 0.62);
+    background: rgba(219, 222, 224, 0.92);
 }
 .cycle-slideshow {
     -webkit-transform: translateZ(0);

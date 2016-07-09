@@ -4,7 +4,11 @@
 
 <!-- Stylesheet - to improve site's load speed, better use the minimized version.
      The unminified version is also included in package. -->
-<link rel="stylesheet" type="text/css" href="/resources/css/style.lite.min.css" />
+<link rel="stylesheet" type="text/css" href="/resources/css/style.lite.css" />
+
+<!-- Google Web Font. -->
+<link href="//fonts.googleapis.com/css?family=Lato:700,300" rel="stylesheet" type="text/css">
+
 <div class="header">
 	<div class="clearfix">
 			
@@ -12,7 +16,7 @@
 		<div class="float-left logo">
 			<h1>
 				<a href="#">
-					<img src="/resources/images/logo.png" alt="Go to homepage">
+					<img src="/resources/logo.png" alt="Go to homepage">
 				</a>
 			</h1>
 		</div>

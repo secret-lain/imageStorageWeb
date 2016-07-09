@@ -30,4 +30,9 @@ public class imageDAO {
 		return query.selectList("imageSelectAllforMain");
 	}
 
+	public void truncate() {
+		// TODO Auto-generated method stub
+		query.delete("truncate");
+	}
+
 }

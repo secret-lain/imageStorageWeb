@@ -43,4 +43,14 @@ public class uploadController {
 		uploadService.saveImgfile(imgFile, model, description);
 		return "uploadResult";
 	}
+	
+	@RequestMapping(value = "/initTable.do", method = RequestMethod.GET)
+	public String test(Locale locale, Model model, HttpServletRequest request){
+		logger.info("{} truncate", locale);
+		
+		uploadService.truncate();
+		
+		model.addAttribute("resultMsg", "[DEBUG]Truncate Success - imageInfoTbl");
+		return "uploadResult";
+	}
 }
