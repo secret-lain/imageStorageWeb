@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+imageDB -> imageInfoTbl
+linkHash varchar PK
+originalFileName varchar
+uploadDate Date
+description varchar
+viewCnt int default 0
+blameRate int default 0
+ -->
+
 <mapper namespace="query">
     <select id="test" resultType="String">
         SELECT 'test'
     </select>
     
-    <select id="imageSelectAllforMain" resultType="org.spring.dto.mainImageVO">
-    	SELECT description, linkHash, uploadDate, viewCount from uploadFileTbl;
+    <select id="imageSelectAllforMain" resultType="org.spring.dto.mainImageDTO">
+    	SELECT description, linkHash, uploadDate, viewCnt from imageInfoTbl;
     </select>
-    
-    
+       
     
     <insert id="imageInsert" parameterType="org.spring.dto.imageDTO">
-    	INSERT into uploadFileTbl (description, originalFileName, uploadDate, linkHash, blameRate, viewCount)
+    	INSERT into imageInfoTbl (description, originalFileName, uploadDate, linkHash, blameRate, viewCnt)
     	values (#{description}, #{originalFileName}, #{uploadDate}, #{linkHash}, 0 , 0 )
     </insert>
     

@@ -74,7 +74,7 @@ public class uploadService {
 		}
 	}
 
-	public List<mainImageVO> getMainImages() throws SQLException {
+	public List<mainImageDTO> getMainImages() throws SQLException {
 		return imageDAO.selectAll();
 	}
 }

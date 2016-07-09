@@ -26,7 +26,7 @@ public class imageDAO {
 		return query.insert("imageInsert", dto);
 	}
 	
-	public List<mainImageVO> selectAll() throws SQLException{
+	public List<mainImageDTO> selectAll() throws SQLException{
 		return query.selectList("imageSelectAllforMain");
 	}
 

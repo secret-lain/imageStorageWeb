@@ -11,8 +11,12 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.spring.*">
+	<logger name="org.spring.*">
 		<level value="info" />
+	</logger>
+	
+	<logger name="org.component.*">
+		<level value="debug"></level>
 	</logger>
 	
 	<!-- 3rdparty Loggers -->
