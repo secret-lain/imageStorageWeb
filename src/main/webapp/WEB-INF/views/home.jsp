@@ -97,8 +97,10 @@
 		</form>
 	</div>
 </div>
-
-<div id="freewall" class="free-wall main-entry">
+<img src="/resources/images/${images[2].linkHash}" width=300px height=300px/>
+<br>
+${path}
+<!-- div id="freewall" class="free-wall main-entry">
             <div class="brick tint size11">
                 <img src="/resources/images/5171071313_e4c110ccb2_b.jpg" alt="" />
                 <div class="overlay">
@@ -195,7 +197,7 @@
                     <a href="single-page-lite2.html" class="open-project">OPEN <span class="pictogram">&#xe803;</span></a>
                 </div>
             </div>                 		
-</div>
+</div -->
 
 <%@include file="footer.jsp" %>
 </body>

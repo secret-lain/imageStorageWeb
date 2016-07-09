@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+<!-- Normalize v.3.0.0 - makes browsers render all elements more consistently. -->
+<link rel="stylesheet" type="text/css" href="/resources/css/normalize.min.css" />
 
+<!-- Stylesheet - to improve site's load speed, better use the minimized version.
+     The unminified version is also included in package. -->
+<link rel="stylesheet" type="text/css" href="/resources/css/style.lite.min.css" />
 <div class="header">
 	<div class="clearfix">
 			
