@@ -48,7 +48,7 @@ public class uploadService {
 		Date fileSavedDate = new Date(System.currentTimeMillis());
 		//난수로 사용된다.
 		
-		String linkHash = encrypt.getSHA1(originalFileName+fileSavedDate.toString()+salt);
+		String linkHash = encrypt.getSHA1(originalFileName+fileSavedDate.getTime()+salt);
 		//String saveFileExtension = imgfile.getOriginalFilename().substring(imgfile.getOriginalFilename().lastIndexOf('.') + 1);
 		String fullPath = savePath + linkHash;
 		

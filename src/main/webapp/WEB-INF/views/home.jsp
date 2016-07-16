@@ -94,11 +94,10 @@ real SavePath = ${path}
 <br>
 <c:forEach var="item" items="${images}" varStatus="i">
 <div class="brick tint size11">
-                <img src="/resources/images/${item.linkHash}" alt="" />
+                <a href="#"><img src="/resources/images/${item.linkHash}" alt="" /></a>
                 <div class="overlay">
-                    <h3 class="project-title">Your Project Title</h3>
-                    <p class="project-description">다람쥐 쳇바퀴에 돌아</p>
-                    <a href="#" class="open-project">OPEN <span class="pictogram">&#xe803;</span></a>
+                    <h3 class="project-title">${item.description}</h3>
+                    <p class="project-description">${item.uploadDate}</p>
                 </div>
             </div>
 </c:forEach>
