@@ -163,70 +163,29 @@
 <div class="content">
 	<div class="gallery">
 		<h2>Images</h2>
-		<div class="gallery-grids">
-			<ul>
-				<c:forEach var="item" items="${images}" varStatus="i">
-            	<li>
-					<a href="resources/images/${item.linkHash}">
-						<img src="resources/images/${item.linkHash}" alt="" />	
-						<div class="glry-bgd">
-						</div>
-					</a>
-				</li>
-				</c:forEach>
-			</ul>
-			<div class="clearfix"> </div>
-		</div>	
-	</div>
-</div>
-	<!--//gallery -->
-
-			
-			
-			<!--footer-->
-		<div class="footer-section">
-						<div class="container">
-							<div class="footer-top">
-						<p>&copy; 2015 Photo Stream. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
-									</div>
-							<script type="text/javascript">
-						$(document).ready(function() {
-							/*
-							var defaults = {
-					  			containerID: 'toTop', // fading element id
-								containerHoverID: 'toTopHover', // fading element hover id
-								scrollSpeed: 1200,
-								easingType: 'linear' 
-					 		};
-							*/
-							
-							$().UItoTop({ easingType: 'easeOutQuart' });
-							
-						});
-					</script>
-				<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
-				</div>
+		<div class="photo-grid">
+			<c:forEach var="item" items="${images}" varStatus="i">
+			<div class="photo">
+				<a href="resources/images/${item.linkHash}">
+					<img src="resources/images/${item.linkHash}" alt="" />
+				</a>
 			</div>
-
-
-<!-- div id="content">
-	<!-- div id="internal">
-		<form name="form2" method="GET" action="initTable.do">
-			<input type="submit" name="initTable" value="initializingTable" />
-		</form>
+			</c:forEach>
+			<div class="clearfix"> </div>
+		</div>
 	</div>
 </div>
-real SavePath = ${path}
-<br>
-<cforEach var="item" items="${images}" varStatus="i">
-<div class="brick tint size11">
-                <a href="#"><img src="/resources/images/${item.linkHash}" alt="" /></a>
-                <div class="overlay">
-                    <h3 class="project-title">${item.description}</h3>
-                    <p class="project-description">${item.uploadDate}</p>
-                </div>
-            </div>
-</cforEach -->
-
+<!--//gallery -->
+			
+<!--footer-->
+<div class="footer-section">
+	<div class="container">
+		<div class="footer-top">
+			<p>&copy; 2015 Photo Stream. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+		</div>
+		<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+	</div>
+</div>
+<!--//footer-->
 </body>
 </html>
